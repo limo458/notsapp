@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notsapp/widges/costum-note%20-item.dart';
 import 'package:notsapp/widges/custm-app-bar.dart';
 
 class NotsViewBody extends StatelessWidget {
@@ -13,7 +14,8 @@ class NotsViewBody extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
-          CustomAppBar()
+          CustomAppBar(),
+          NotsItem()
         ],
       ),
     );
