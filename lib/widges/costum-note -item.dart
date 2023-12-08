@@ -24,7 +24,7 @@ class NotesItem extends StatelessWidget {
               child: Text(
                 'he want to trivel to anuther countr ',
                 style: TextStyle(
-                    color: Colors.black.withOpacity(.7), fontSize: 20),
+                    color: Colors.black.withOpacity(.7), fontSize: 16),
               ),
             ),
             trailing: IconButton(

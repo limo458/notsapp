@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notsapp/widges/custm-app-bar.dart';
-import 'package:notsapp/widges/nots-list-view.dart';
+import 'package:notsapp/widges/notes-list-view.dart';
 
 class NotsViewBody extends StatelessWidget {
   const NotsViewBody({super.key});
