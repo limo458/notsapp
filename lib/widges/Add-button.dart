@@ -11,10 +11,10 @@ class AddButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: KpraimaryColor,
+          color: kpraimaryColor,
           borderRadius: BorderRadius.circular(20),
         ),
-        width: double.infinity,
+        width: MediaQuery.of(context).size.width,
         height: 60,
         child: Center(
           child: Text(
