@@ -6,7 +6,7 @@ import 'package:notsapp/widges/Constans.dart';
 void main() async {
   await Hive.initFlutter();
   await Hive.openBox(boxtName);
-
+  // Hive.registerAdapter();
   runApp(const NotesApp());
 }
 
