@@ -1,19 +1,22 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:meta/meta.dart';
 import 'package:notsapp/Models/note_model.dart';
-import 'package:notsapp/widges/Constans.dart';
+import 'package:notsapp/widges/AConstans.dart';
 
 part 'add-notes_state.dart';
 
 class AddNotesCubit extends Cubit<AddNotesState> {
   AddNotesCubit() : super(AddNotesInitial());
-  addNotModle(NoteMoldel note) async {
+
+  addNot(NoteMoldel note) async {
+    emit(AddNotesLoding());
     try {
       var notesBox = Hive.box<NoteMoldel>(kNotesBox);
       await notesBox.add(note);
+      emit(AddNotesSuccess());
     } catch (e) {
-      AddNotesFealiur(e.toString());
+      emit(AddNotesFealiur(e.toString()));
     }
   }
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:notsapp/widges/Add-button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notsapp/Models/note_model.dart';
+import 'package:notsapp/cubit/add-note/add-notes_cubit.dart';
+import 'package:notsapp/widges/custom-button.dart';
 import 'package:notsapp/widges/custom-text-feild.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -42,15 +45,26 @@ class _AddNoteFormState extends State<AddNoteForm> {
             maxline: 5,
           ),
           const SizedBox(height: 10),
-          AddButton(
-            textButon: 'Add',
-            onTap: () {
-              if (formkey.currentState!.validate()) {
-                formkey.currentState!.save();
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddNotesCubit, AddNotesState>(
+            builder: (context, state) {
+              return customButton(
+                isloding: state is AddNotesLoding ? true : false,
+                textButon: 'Add',
+                onTap: () {
+                  if (formkey.currentState!.validate()) {
+                    formkey.currentState!.save();
+                    var noteModel = NoteMoldel(
+                        title: title!,
+                        suptitle: suptitle!,
+                        date: DateTime.now().toString(),
+                        color: Colors.blue.value);
+                    BlocProvider.of<AddNotesCubit>(context).addNot(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
         ],

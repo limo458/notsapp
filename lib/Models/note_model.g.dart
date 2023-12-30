@@ -16,8 +16,8 @@ class NoteMoldelAdapter extends TypeAdapter<NoteMoldel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return NoteMoldel(
-      titel: fields[1] as String,
-      supTitel: fields[2] as String,
+      title: fields[1] as String,
+      suptitle: fields[2] as String,
       date: fields[3] as String,
       color: fields[4] as int,
     );
@@ -28,9 +28,9 @@ class NoteMoldelAdapter extends TypeAdapter<NoteMoldel> {
     writer
       ..writeByte(4)
       ..writeByte(1)
-      ..write(obj.titel)
+      ..write(obj.title)
       ..writeByte(2)
-      ..write(obj.supTitel)
+      ..write(obj.suptitle)
       ..writeByte(3)
       ..write(obj.date)
       ..writeByte(4)
